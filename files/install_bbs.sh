@@ -16,7 +16,7 @@ elif [ "$EUID" == "99" ]; then
 
 	cp /files/pttbbs.conf /home/bbs/pttbbs/pttbbs.conf
 
-	/files/build.sh
+	sh /files/build.sh
 
 	test -d /home/bbs/etc || mkdir -p /home/bbs/etc
 	cp /files/bindports.conf /home/bbs/etc/bindports.conf

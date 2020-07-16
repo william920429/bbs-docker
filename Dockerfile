@@ -3,6 +3,6 @@ FROM openresty/openresty:bionic-nosse42
 
 COPY ./files/* /files/
 
-RUN /files/setup.sh
+RUN sh /files/setup.sh
 
-CMD ["/files/docker-entrypoint.sh"]
+CMD ["sh", "/files/docker-entrypoint.sh"]

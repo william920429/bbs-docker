@@ -1,17 +1,20 @@
 #!/bin/bash
 
+testfile=/dev/shm/update.sh.tmp
+
 if [ "$EUID" == "0" ]; then
 	su bbsadm -c $0
 
 	cd /usr/local/openresty/nginx/html/PttChrome/
-	git pull
+	git pull | tee ${testfile}
 	git rebase
 	if [ "$(grep " changed, " ${testfile})" != "" ]; then #source updated
 		cd /usr/local/openresty/nginx/html/PttChrome
 		yarn upgrade
 		yarn && npm update --depth 5 @babel/preset-env
 		yarn && yarn build
-
+		/usr/local/openresty/bin/openresty -s reload
+		
 	elif [ "$(grep "Already up to date." ${testfile})" == "" ]; then #something wrong
 		echo "something wrong while updating pttchrome"
 	fi
@@ -20,12 +23,14 @@ elif [ "$EUID" == "99" ]; then
 
 	cd /home/bbs/pttbbs
 
-	testfile=/dev/shm/update.sh.tmp
-
 	git pull | tee ${testfile}
 	git rebase
 	if [ "$(grep " changed, " ${testfile})" != "" ]; then #source updated
-		/files/build.sh
+		sh /files/build.sh
+		pkill -ef logind
+		pkill -ef shmctl
+		su bbsadm -c "/home/bbs/bin/shmctl init"
+		su bbsadm -c "/home/bbs/bin/logind"
 	elif [ "$(grep "Already up to date." ${testfile})" == "" ]; then #something wrong
 		echo "something wrong while updating pttbbs"
 	fi
