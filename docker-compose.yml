@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+
+  bbs:
+    image: bbs
+    container_name: bbs
+    restart: always
+    ports:
+      # - 127.0.0.1:3000:3000 #telnet
+      - 127.0.0.1:3001:3001 #openresty
+    volumes:
+      - ./bbs:/home/bbs:rw
+      - ./PttChrome:/usr/local/openresty/nginx/html/PttChrome:rw
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      # - /var/run/bbs:/var/run/bbs:rw
+    networks:
+      - bbs_net
+
+networks:
+  bbs_net:
