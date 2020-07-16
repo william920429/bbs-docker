@@ -17,6 +17,7 @@ apt install -y --no-install-recommends \
 
 #install cron
 cp /files/crontab /etc/crontab
+su bbsadm -c "crontab /files/bbs-cron"
 
 #install yarn nodejs
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -

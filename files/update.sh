@@ -26,7 +26,7 @@ elif [ "$EUID" == "99" ]; then
 	git pull | tee ${testfile}
 	git rebase
 	if [ "$(grep " changed, " ${testfile})" != "" ]; then #source updated
-		sh /files/build.sh
+		/files/build.sh
 		pkill -ef logind
 		pkill -ef shmctl
 		su bbsadm -c "/home/bbs/bin/shmctl init"

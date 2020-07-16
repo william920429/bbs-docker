@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [ ! -d "/home/bbs/pttbbs" ]; then
-	sh /files/install_bbs.sh
+	/files/install_bbs.sh
 fi
 
 if [ ! -d "/usr/local/openresty/nginx/html/PttChrome/dist" ]; then
-	sh /files/install_PttChrome.sh
+	/files/install_PttChrome.sh
 fi
 
 su bbsadm -c "/home/bbs/bin/shmctl init"

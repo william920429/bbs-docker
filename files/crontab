@@ -15,4 +15,4 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # │     │       │       │       ┌───── 星期幾 (0 - 7，0 是週日，6 是週六，7 也是週日)
 # │     │       │       │       │
 # *     *       *       *       *       user    /path/to/command
-45		4		*		*		7		root	sh /files/update.sh
+45		4		*		*		7		root	/files/update.sh
