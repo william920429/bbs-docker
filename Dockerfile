@@ -9,5 +9,7 @@ RUN /files/setup.sh
 
 CMD /files/docker-entrypoint.sh
 
-EXPOSE 3000 #telnet
-EXPOSE 3001 #http
+#telnet
+EXPOSE 3000
+#http
+EXPOSE 3001
