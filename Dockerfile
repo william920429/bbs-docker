@@ -7,4 +7,7 @@ RUN chmod +x /files/*.sh
 
 RUN /files/setup.sh
 
-CMD ["sh", "/files/docker-entrypoint.sh"]
+CMD /files/docker-entrypoint.sh
+
+EXPOSE 3000 #telnet
+EXPOSE 3001 #http
