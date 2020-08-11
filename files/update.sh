@@ -29,8 +29,8 @@ elif [ "$EUID" == "99" ]; then
 		/files/build.sh
 		pkill -ef logind
 		pkill -ef shmctl
-		su bbsadm -c "/home/bbs/bin/shmctl init"
-		su bbsadm -c "/home/bbs/bin/logind"
+		/home/bbs/bin/shmctl init
+		/home/bbs/bin/logind
 	elif [ "$(grep "Already up to date." ${testfile})" == "" ]; then #something wrong
 		echo "something wrong while updating pttbbs"
 	fi
