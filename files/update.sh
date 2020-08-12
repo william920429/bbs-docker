@@ -18,6 +18,7 @@ if [ "$EUID" == "0" ]; then
 	elif [ "$(grep "Already up to date." ${testfile})" == "" ]; then #something wrong
 		echo "something wrong while updating pttchrome"
 	fi
+	rm -rf ${testfile}
 
 elif [ "$EUID" == "99" ]; then
 
@@ -34,6 +35,7 @@ elif [ "$EUID" == "99" ]; then
 	elif [ "$(grep "Already up to date." ${testfile})" == "" ]; then #something wrong
 		echo "something wrong while updating pttbbs"
 	fi
+	rm -rf ${testfile}
 
 	cd /home/bbs/pttbbs/daemon/wsproxy/lib/vstruct
 	git pull

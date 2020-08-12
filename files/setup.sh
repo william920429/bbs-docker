@@ -14,6 +14,7 @@ apt update && apt upgrade -y --no-install-recommends
 apt install -y --no-install-recommends \
         git python bmake gcc g++ make clang ccache libevent-dev pkg-config \
         libc6-dev curl ca-certificates gnupg cron lsb-release \
+        nano
 
 #install cron
 cp /files/crontab /etc/crontab
