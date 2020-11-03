@@ -15,7 +15,7 @@ services:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     tmpfs:
-      - /run,mode=1777
+      - /run:mode=1777
     environment:
       PTTCHROME_PAGE_TITLE: "附中電算bbs"
       DEFAULT_SITE: "wsstelnet://bbs.crc.hs.ntnu.edu.tw/bbs"
