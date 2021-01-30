@@ -9,7 +9,7 @@ elif [ "$EUID" == "99" ]; then
 	git clone https://github.com/ptt/pttbbs.git
 
 	cd /home/bbs/pttbbs
-	cp sample/pttbbs.conf pttbbs.conf
+	#cp sample/pttbbs.conf pttbbs.conf
 
 	cd /home/bbs/pttbbs/daemon/wsproxy && mkdir lib && cd lib
 	git clone https://github.com/toxicfrog/vstruct/
