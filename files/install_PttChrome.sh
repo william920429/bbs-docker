@@ -5,5 +5,6 @@ git clone https://github.com/robertabcd/PttChrome.git /usr/local/openresty/nginx
 cp /files/webpack.config.js /usr/local/openresty/nginx/html/PttChrome/webpack.config.js
 
 cd /usr/local/openresty/nginx/html/PttChrome
-yarn && npm update --depth 5 @babel/preset-env
-yarn && yarn build
+yarn
+yarn upgrade @babel/preset-env
+yarn build
