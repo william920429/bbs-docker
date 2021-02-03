@@ -52,7 +52,7 @@ environment:
 ```
 >PTTCHROME_PAGE_TITLE: 網頁的標題
 
->DEFAULT_SITE: 目標主機
+>DEFAULT_SITE: 目標主機  
 >要能從 client 連線，記得開防火牆  
 >單人測試時可以用 `wstelnet://127.0.0.1:3001/bbs`  
 >如果改成 `wsstelnet://ws.crc.cnmc.tw/bbs`，就會連到電算 bbs 喔！(還沒修好  
