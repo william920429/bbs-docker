@@ -12,7 +12,7 @@
 git clone https://github.com/william920429/bbs-docker.git
 ```
 ## 安裝
-如果你的 cpu 支援 SSE4.2 指令集，可以將 Dockerfile 第一行
+如果你的 cpu 支援 SSE4.2 指令集，可以將 Dockerfile 第一行  
 從這個
 ```dockerfile
 FROM openresty/openresty:bionic-nosse42
@@ -32,8 +32,8 @@ docker build . -t "bbs"
 
 ## 修改 config
 ### docker-compose.yml
-Port:
-如果希望可由外部連線，可以將 `127.0.0.1:` 刪除或改成 `0.0.0.0:`
+Port:  
+如果希望可由外部連線，可以將 `127.0.0.1:` 刪除或改成 `0.0.0.0:`  
 從這個
 ```yml
 ports:
@@ -62,11 +62,11 @@ environment:
 >PTTCHROME_PAGE_TITLE: 網頁的標題
 
 >DEFAULT_SITE: 目標主機
->要能從 client 連線，記得開防火牆
->單人測試時可以用 `wstelnet://127.0.0.1:3001/bbs`
->如果改成 `wsstelnet://ws.crc.cnmc.tw/bbs`，就會連到電算 bbs 喔！(還沒修好
->* `wstelnet://` 表示連線未加密，預設連接 port 80
->* `wsstelnet://` 表示連線已加密，預設連接 port 443
+>要能從 client 連線，記得開防火牆  
+>單人測試時可以用 `wstelnet://127.0.0.1:3001/bbs`  
+>如果改成 `wsstelnet://ws.crc.cnmc.tw/bbs`，就會連到電算 bbs 喔！(還沒修好  
+>* `wstelnet://` 表示連線未加密，預設連接 port 80  
+>* `wsstelnet://` 表示連線已加密，預設連接 port 443  
 
 ### files/pttbbs.conf
 請參考 <https://github.com/ptt/pttbbs/wiki/CONFIG>
@@ -76,10 +76,10 @@ environment:
 cd bbs-docker
 docker-compose up -d
 ```
-第一次啟動要花一點時間
+第一次啟動要花一點時間  
 想看看發生什麼事，可以
 ```bash
 docker logs -f bbs
 ```
-沒意外的話，可以在 <http://127.0.0.1:3001> 看到新鮮的 bbs
+沒意外的話，可以在 <http://127.0.0.1:3001> 看到新鮮的 bbs  
 有意外的話......加油！相信你可以ㄉ！
