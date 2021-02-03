@@ -20,10 +20,6 @@ FROM openresty/openresty:bionic
 ```bash
 docker build . -t "bbs"
 ```
-如果不支援，直接
-```bash
-docker build . -t "bbs"
-```
 
 ## 修改 config
 ### docker-compose.yml
