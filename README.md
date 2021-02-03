@@ -72,7 +72,7 @@ docker-compose up -d
 ```bash
 docker logs -f bbs
 ```
-沒意外的話，可以在 <http://127.0.0.1:3001> 看到新鮮的 bbs  
+沒意外的話，可以在 <http://127.0.0.1:3001> 看到新鮮的 bbs   
 有意外的話......加油！相信你可以ㄉ！
 
 ---
@@ -80,3 +80,37 @@ docker logs -f bbs
 1. pttbbs <https://github.com/ptt/pttbbs>
 2. PttChrome <https://github.com/robertabcd/PttChrome>
 3. 非官方Docker image <https://github.com/bbsdocker/imageptt>
+
+---
+## 補充
+### nginx reverse proxy
+將 bbs 放在 nginx 後面
+由 nginx  負責 SSL 加/解密 & 處理連線
+
+在 nginx 加入以下設定檔
+```nginx
+upstream bbs {
+    server localhost:3001;
+    keepalive 64;
+}
+...
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name bbs.crc.cnmc.tw;
+    location / {
+        proxy_pass http://bbs;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        add_header X-Frame-Options SAMEORIGIN;
+        proxy_hide_header X-Frame-Options;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+    }
+}
+```
+SSL 相關設定請參考 <https://ssl-config.mozilla.org>  
+可以使用 let's encrypt 免費憑證
