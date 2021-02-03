@@ -2,11 +2,6 @@
 ---
 ## 用 docker 安裝 pttbbs
 ---
-## 參考
-1. pttbbs <https://github.com/ptt/pttbbs>
-2. PttChrome <https://github.com/robertabcd/PttChrome>
-3. 非官方Docker image <https://github.com/bbsdocker/imageptt>
----
 ## 下載
 ```bash
 git clone https://github.com/william920429/bbs-docker.git
@@ -83,3 +78,8 @@ docker logs -f bbs
 ```
 沒意外的話，可以在 <http://127.0.0.1:3001> 看到新鮮的 bbs  
 有意外的話......加油！相信你可以ㄉ！
+---
+## 參考
+1. pttbbs <https://github.com/ptt/pttbbs>
+2. PttChrome <https://github.com/robertabcd/PttChrome>
+3. 非官方Docker image <https://github.com/bbsdocker/imageptt>
