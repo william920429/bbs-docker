@@ -16,7 +16,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
     tmpfs:
       - /run
-      - /home/bbs/run
+      - /home/bbs/run:uid=99,gid=99
     environment:
       PTTCHROME_PAGE_TITLE: "附中電算bbs"
       DEFAULT_SITE: "wsstelnet://ws.crc.cnmc.tw/bbs"
