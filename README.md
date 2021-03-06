@@ -72,7 +72,7 @@ docker-compose up -d
 ```bash
 docker logs -f bbs
 ```
-沒意外的話，可以在 <http://127.0.0.1:3001> 看到新鮮的 bbs   
+沒意外的話，可以在 <http://127.0.0.1:3001> 看到新鮮的 bbs  
 有意外的話......加油！相信你可以ㄉ！
 
 ---
@@ -84,7 +84,7 @@ docker logs -f bbs
 ---
 ## 補充
 ### nginx reverse proxy
-將 bbs 放在 nginx 後面
+將 bbs 放在 nginx 後面  
 由 nginx  負責 SSL 加/解密 & 處理連線
 
 在 nginx 加入以下設定檔
@@ -93,7 +93,7 @@ upstream bbs {
     server localhost:3001;
     keepalive 64;
 }
-...
+#...
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
@@ -113,4 +113,7 @@ server {
 }
 ```
 SSL 相關設定請參考 <https://ssl-config.mozilla.org>  
-可以使用 let's encrypt 免費憑證
+可以使用 let's encrypt 免費憑證  
+* certbot: <https://certbot.eff.org>
+* acme.sh: <https://github.com/acmesh-official/acme.sh>
+
